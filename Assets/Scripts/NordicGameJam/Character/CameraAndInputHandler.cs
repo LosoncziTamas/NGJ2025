@@ -72,7 +72,7 @@ namespace NordicGameJam.Character
             CharacterCamera.UpdateWithInput(Time.deltaTime, scrollInput, lookInputVector);
             
             // Drunk leaning
-            Character.AddVelocity(lookInputVector * 0.5f);
+            Character.AddVelocity(lookInputVector * 0.25f);
         }
 
         private void HandleCharacterInput()
