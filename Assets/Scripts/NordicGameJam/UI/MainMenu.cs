@@ -24,8 +24,7 @@ namespace NordicGameJam.UI
         private void OnStartButtonClick()
         {
             _start.interactable = _exit.interactable = false;
-            // TODO: load appropriate scene
-            SceneManager.LoadScene("Movement");
+            SceneManager.LoadScene("Tutorial");
         }
         
         private void OnExitButtonClick()
