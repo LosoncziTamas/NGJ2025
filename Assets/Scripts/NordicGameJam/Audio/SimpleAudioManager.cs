@@ -8,8 +8,7 @@ namespace NordicGameJam.Audio
 {
     public class SimpleAudioManager : MonoBehaviour
     {
-        // TODO: specify
-        private const string SceneWithAmbientAudio = "Main Menu";
+        private const string SceneWithAmbientAudio = "Tutorial";
         public static SimpleAudioManager Instance { get; private set; }
         
         [SerializeField] private AudioSource _ambient;

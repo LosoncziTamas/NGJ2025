@@ -30,10 +30,9 @@ namespace NordicGameJam.UI
         private void OnExitButtonClick()
         {
             _start.interactable = _exit.interactable = false;
-            if (Application.isEditor)
-            {
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
             Application.Quit();
         }
     }

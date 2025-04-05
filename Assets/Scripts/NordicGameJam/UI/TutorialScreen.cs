@@ -11,15 +11,13 @@ namespace NordicGameJam.UI
     {
         [SerializeField] private TextMeshProUGUI _text;
 
-        private string text1 = "You really should think about cutting \n down on the late nights.";
-        private string text2 = "But here you are again, it’s 4AM and\n your roommates are fast asleep for\n their early morning shifts.";
-        private string text3 = "Are you quiet as a mouse? Or loud as a laptop running a AAA game?";
-        private string text4 = "Master your unreliable, alcohol-soaked motor skills to stumble through your home and get yourself to bed.";
-        private string text5 = "Just make sure not to wake your roommates (and beware the cat!) ";
+        private string text1 = "You really should cut down on the late nights.";
+        private string text2 = "But here you are again. 4AM, and your roommates are fast asleep.";
+        private string text3 = "Better not wake them. So don’t stumble, and keep it quiet!";
 
         [SerializeField] private float _duration = 3.0f;
         [SerializeField] private float _waitDuration = 2.0f;
-        [SerializeField] private float _reverseDuration = 1.5f;
+        [SerializeField] private float _reverseDuration = 0.4f;
         [SerializeField] private Button _skipButton;
         
         private IEnumerator Start()
@@ -52,29 +50,26 @@ namespace NordicGameJam.UI
             yield return AnimateTextWaitAndReverse(text1, duration, reverseDuration, waitTime);
             yield return AnimateTextWaitAndReverse(text2, duration, reverseDuration, waitTime);
             yield return AnimateTextWaitAndReverse(text3, duration, reverseDuration, waitTime);
-            yield return AnimateTextWaitAndReverse(text4, duration, reverseDuration, waitTime);
-            yield return AnimateTextWaitAndReverse(text5, duration, reverseDuration, waitTime);
-
-            yield return new WaitForSeconds(1.0f);
         }
         
         private IEnumerator AnimateTextWaitAndReverse(string text, float duration, float reverseDuration, float waitTime)
         {
-            var tween = _text.DOText(text, duration).SetEase(Ease.InOutSine).SetAutoKill(false);
+            _text.DOFade(1.0f, 0.0f);
+            var tween = _text.DOText(text, duration).SetEase(Ease.InOutSine).SetAutoKill(true);
             yield return tween.WaitForCompletion();
             yield return new WaitForSeconds(waitTime);
-            tween.timeScale = duration / reverseDuration;
-            tween.PlayBackwards();
-            yield return new WaitForSeconds(reverseDuration);
+            yield return _text.DOFade(0.0f, reverseDuration).WaitForCompletion();
+            _text.text = string.Empty;
         }
         
         private IEnumerator AnimateTextAndWaitForButtonClickBeforeReverse(string text, float duration, float reverseDuration)
         {
-            var tween = _text.DOText(text, duration).SetEase(Ease.InOutSine).SetAutoKill(false);
+            _text.DOFade(1.0f, 0.0f);
+            var tween = _text.DOText(text, duration).SetEase(Ease.InOutSine);
             yield return tween.WaitForCompletion();
             tween.timeScale = duration / reverseDuration;
-            tween.PlayBackwards();
-            yield return new WaitForSeconds(reverseDuration);
+            yield return _text.DOFade(0.0f, reverseDuration).WaitForCompletion();;
+            _text.text = string.Empty;
         }
 
         private void GoToNextScene()
