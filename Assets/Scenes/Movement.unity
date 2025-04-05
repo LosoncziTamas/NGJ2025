@@ -1206,6 +1206,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1358404893}
     m_Modifications:
+    - target: {fileID: 1763644773754816430, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3235007402836108924, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
       propertyPath: m_Name
       value: Ragdoll
