@@ -2,11 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace NordicGameJam.Audio
 {
     public class SimpleAudioManager : MonoBehaviour
     {
+        // TODO: specify
+        private const string SceneWithAmbientAudio = "";
         public static SimpleAudioManager Instance { get; private set; }
         
         [SerializeField] private AudioSource _ambient;
@@ -18,11 +21,15 @@ namespace NordicGameJam.Audio
         private void Awake()
         {
             Instance = this;
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        private void Start()
+        private void OnSceneLoaded(Scene scene, LoadSceneMode args)
         {
-            _ambient.DOFade(1.0f, 0.4f);
+            if (string.Equals(scene.name, SceneWithAmbientAudio))
+            {
+                _ambient.DOFade(1.0f, 0.4f);
+            }
         }
 
         public void PlayClip(AudioClip audioClip, float volume = 1.0f)
