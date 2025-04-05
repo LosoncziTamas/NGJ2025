@@ -52,5 +52,12 @@ namespace NordicGameJam.Audio
             _ui.clip = clipEntry.Clip;
             _ui.Play();
         }
+        
+        public void PlayHover()
+        {
+            var clipEntry = _audioClips.FirstOrDefault(entry => entry.Type == AudioClipType.UIHover);
+            _ui.clip = clipEntry.Clip;
+            _ui.Play();
+        }
     }
 }

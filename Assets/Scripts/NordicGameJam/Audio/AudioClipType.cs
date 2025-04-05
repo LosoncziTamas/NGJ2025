@@ -9,5 +9,6 @@
         BabyCry = 5,
         Footstep = 6,
         Hiccup = 7,
+        UIHover = 8,
     }
 }

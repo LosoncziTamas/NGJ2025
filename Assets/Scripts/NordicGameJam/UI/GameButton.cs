@@ -39,6 +39,7 @@ namespace NordicGameJam.UI
         public void OnPointerEnter(PointerEventData eventData)
         {
             _button.transform.DOScale(Vector3.one * _scale, _duration).SetEase(_ease);
+            SimpleAudioManager.Instance.PlayHover();
         }
 
         public void OnPointerExit(PointerEventData eventData)
