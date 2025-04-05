@@ -296,23 +296,7 @@ namespace NordicGameJam.Character
                     // Ground movement
                     if (Motor.GroundingStatus.IsStableOnGround)
                     {
-                        float currentVelocityMagnitude = currentVelocity.magnitude;
-
-                        Vector3 effectiveGroundNormal = Motor.GroundingStatus.GroundNormal;
-
-                        // Reorient velocity on slope
-                        currentVelocity = Motor.GetDirectionTangentToSurface(currentVelocity, effectiveGroundNormal) *
-                                          currentVelocityMagnitude;
-
-                        // Calculate target velocity
-                        Vector3 inputRight = Vector3.Cross(_moveInputVector, Motor.CharacterUp);
-                        Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized *
-                                                  _moveInputVector.magnitude;
-                        Vector3 targetMovementVelocity = reorientedInput * MaxStableMoveSpeed;
-
-                        // Smooth movement Velocity
-                        currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
-                            1f - Mathf.Exp(-StableMovementSharpness * deltaTime));
+                        HandleGroundMovement(ref currentVelocity, deltaTime);
                     }
                     // Air movement
                     else
@@ -410,6 +394,27 @@ namespace NordicGameJam.Character
                     break;
                 }
             }
+        }
+
+        private void HandleGroundMovement(ref Vector3 currentVelocity, float deltaTime)
+        {
+            float currentVelocityMagnitude = currentVelocity.magnitude;
+
+            Vector3 effectiveGroundNormal = Motor.GroundingStatus.GroundNormal;
+
+            // Reorient velocity on slope
+            currentVelocity = Motor.GetDirectionTangentToSurface(currentVelocity, effectiveGroundNormal) *
+                              currentVelocityMagnitude;
+
+            // Calculate target velocity
+            Vector3 inputRight = Vector3.Cross(_moveInputVector, Motor.CharacterUp);
+            Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized *
+                                      _moveInputVector.magnitude;
+            Vector3 targetMovementVelocity = reorientedInput * MaxStableMoveSpeed;
+
+            // Smooth movement Velocity
+            currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
+                1f - Mathf.Exp(-StableMovementSharpness * deltaTime));
         }
 
         /// <summary>
