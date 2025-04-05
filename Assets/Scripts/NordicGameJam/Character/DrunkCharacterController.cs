@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using KinematicCharacterController;
 using UnityEngine;
@@ -396,6 +397,11 @@ namespace NordicGameJam.Character
             }
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawLine(CameraFollowPoint.position, CameraFollowPoint.forward * 10.0f);
+        }
+
         private void HandleGroundMovement(ref Vector3 currentVelocity, float deltaTime)
         {
             float currentVelocityMagnitude = currentVelocity.magnitude;
@@ -403,18 +409,29 @@ namespace NordicGameJam.Character
             Vector3 effectiveGroundNormal = Motor.GroundingStatus.GroundNormal;
 
             // Reorient velocity on slope
-            currentVelocity = Motor.GetDirectionTangentToSurface(currentVelocity, effectiveGroundNormal) *
-                              currentVelocityMagnitude;
-
+            // currentVelocity = Motor.GetDirectionTangentToSurface(currentVelocity, effectiveGroundNormal) * currentVelocityMagnitude;
+            
+            _moveInputVector = _moveInputVector;
+            
             // Calculate target velocity
             Vector3 inputRight = Vector3.Cross(_moveInputVector, Motor.CharacterUp);
-            Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized *
-                                      _moveInputVector.magnitude;
+            Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized * _moveInputVector.magnitude;
             Vector3 targetMovementVelocity = reorientedInput * MaxStableMoveSpeed;
-
+            _reorientedInput = reorientedInput;
             // Smooth movement Velocity
             currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
                 1f - Mathf.Exp(-StableMovementSharpness * deltaTime));
+        }
+
+        private float _alignment;
+        private Vector3 _reorientedInput;
+
+        private void OnGUI()
+        {
+            GUILayout.Space(100);
+            GUILayout.Label("_moveInputVector: " + _moveInputVector);
+            GUILayout.Label("Forward: " + CameraFollowPoint.forward);
+            GUILayout.Label("_reorientedInput: " + _reorientedInput);
         }
 
         /// <summary>
