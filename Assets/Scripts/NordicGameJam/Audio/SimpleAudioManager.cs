@@ -8,8 +8,7 @@ namespace NordicGameJam.Audio
 {
     public class SimpleAudioManager : MonoBehaviour
     {
-        // TODO: specify
-        private const string SceneWithAmbientAudio = "";
+        private const string SceneWithAmbientAudio = "Tutorial";
         public static SimpleAudioManager Instance { get; private set; }
         
         [SerializeField] private AudioSource _ambient;
@@ -49,6 +48,13 @@ namespace NordicGameJam.Audio
         public void PlayClick()
         {
             var clipEntry = _audioClips.FirstOrDefault(entry => entry.Type == AudioClipType.UIClick);
+            _ui.clip = clipEntry.Clip;
+            _ui.Play();
+        }
+        
+        public void PlayHover()
+        {
+            var clipEntry = _audioClips.FirstOrDefault(entry => entry.Type == AudioClipType.UIHover);
             _ui.clip = clipEntry.Clip;
             _ui.Play();
         }
