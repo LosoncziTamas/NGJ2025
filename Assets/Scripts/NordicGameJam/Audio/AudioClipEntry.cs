@@ -6,7 +6,7 @@ namespace NordicGameJam.Audio
     [Serializable]
     public class AudioClipEntry
     {
-        public AudioClipTypes Type;
+        public AudioClipType Type;
         public AudioClip Clip;
     }
 }

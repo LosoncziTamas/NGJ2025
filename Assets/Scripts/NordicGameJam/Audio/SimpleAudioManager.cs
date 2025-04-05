@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -8,7 +7,7 @@ namespace NordicGameJam.Audio
 {
     public class SimpleAudioManager : MonoBehaviour
     {
-        public static SimpleAudioManager Instance;
+        public static SimpleAudioManager Instance { get; private set; }
         
         [SerializeField] private AudioSource _ambient;
         [SerializeField] private AudioSource _ui;
@@ -26,7 +25,12 @@ namespace NordicGameJam.Audio
             _ambient.DOFade(1.0f, 0.4f);
         }
 
-        public void PlayOneShot(AudioClipTypes type)
+        public void PlayClip(AudioClip audioClip, float volume = 1.0f)
+        {
+            _oneShot.PlayOneShot(audioClip, volume);
+        }
+        
+        public void PlayOneShot(AudioClipType type)
         {
             var clipEntry = _audioClips.FirstOrDefault(entry => entry.Type == type);
             if (clipEntry != null)
@@ -37,14 +41,7 @@ namespace NordicGameJam.Audio
 
         public void PlayClick()
         {
-            var clipEntry = _audioClips.FirstOrDefault(entry => entry.Type == AudioClipTypes.UIClick);
-            _ui.clip = clipEntry.Clip;
-            _ui.Play();
-        }
-
-        public void PlayHover()
-        {
-            var clipEntry = _audioClips.FirstOrDefault(entry => entry.Type == AudioClipTypes.UIHover);
+            var clipEntry = _audioClips.FirstOrDefault(entry => entry.Type == AudioClipType.UIClick);
             _ui.clip = clipEntry.Clip;
             _ui.Play();
         }

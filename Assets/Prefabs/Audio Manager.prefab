@@ -51,14 +51,20 @@ MonoBehaviour:
   _ui: {fileID: 8060129718722952362}
   _oneShot: {fileID: 3380974205714070521}
   _audioClips:
-  - Type: 0
+  - Type: 1
     Clip: {fileID: 8300000, guid: 06f1b7cf00c5eb74c943b5ee5af98675, type: 3}
   - Type: 2
     Clip: {fileID: 8300000, guid: cde5bda7e693e3a44b1d1f4f53f1e35e, type: 3}
   - Type: 3
     Clip: {fileID: 8300000, guid: fed10afb4d33ea44e81eabc63fd47b5a, type: 3}
-  - Type: 1
-    Clip: {fileID: 8300000, guid: 06f1b7cf00c5eb74c943b5ee5af98675, type: 3}
+  - Type: 4
+    Clip: {fileID: 8300000, guid: 624824aabeec3b9419ca166b57a8b552, type: 3}
+  - Type: 5
+    Clip: {fileID: 8300000, guid: 3c77022edc00913479ebc78af122d581, type: 3}
+  - Type: 6
+    Clip: {fileID: 8300000, guid: 7f6a59f1e8036224988dae989e4fafd2, type: 3}
+  - Type: 7
+    Clip: {fileID: 8300000, guid: 7b3d19f0af8a1684ebcb60f62a523a77, type: 3}
 --- !u!1 &6843206716213684335
 GameObject:
   m_ObjectHideFlags: 0
