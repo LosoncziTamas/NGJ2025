@@ -12,17 +12,21 @@ namespace NordicGameJam.UI
         [SerializeField] private float _time;
         [SerializeField] private Ease _ease;
 
-        private void OnGUI()
+        private Tweener _blurTweener;
+
+        private void OnDisable()
         {
-            if (GUILayout.Button("Start Blur Loop"))
-            {
-                LoopBlur();
-            }
+            _blurTweener?.Kill();
+        }
+
+        private void OnEnable()
+        {
+            LoopBlur();
         }
 
         public void LoopBlur()
         {
-            DOVirtual.Float(0.0f, _maxBlur, _time, OnBlurUpdate)
+            _blurTweener = DOVirtual.Float(0.0f, _maxBlur, _time, OnBlurUpdate)
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(_ease);
         }
