@@ -563,7 +563,7 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
   delay: 0
-  duration: 3
+  duration: 2
   easeType: 7
   easeCurve:
     serializedVersion: 2
@@ -605,7 +605,7 @@ MonoBehaviour:
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
-  endValueFloat: 70
+  endValueFloat: 80
   endValueV3: {x: 0, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1208,7 +1208,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1763644773754816430, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3235007402836108924, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
       propertyPath: m_Name
