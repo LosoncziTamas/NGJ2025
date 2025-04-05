@@ -8,7 +8,7 @@ public class NoiseManager : MonoBehaviour
 {
     public Slider SoundSlider;
     bool cooldownRunning;
-    //
+
     public float CooldownAmount;
     public int CooldownDelay;
 
@@ -22,9 +22,6 @@ public class NoiseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        
-
-
         //checks if metre filled
         if (SoundSlider.value >= SoundSlider.maxValue)
         {
@@ -32,16 +29,6 @@ public class NoiseManager : MonoBehaviour
         }
 
     }
-
-    /*
-    public float IncreaseNoise(float inputNoise)
-    {
-        //get gameobject with specified noise amount
-
-        //add noise amount and u
-
-    }
-    */
 
     IEnumerator Cooldown(int time)
     {
@@ -59,11 +46,16 @@ public class NoiseManager : MonoBehaviour
     public void UpdateSlider(float newvalue)
     {
             //adds value to slider UI
-            SoundSlider.value += newvalue;        
+        SoundSlider.value += newvalue;    
+        SoundSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = 
+            Color.Lerp(Color.green, Color.red, SoundSlider.value / 100);
+        
     }
     void MetreFilled()
     {
         //send gameover
         Debug.Log("YOU LOSE!!!");
+
+        gameObject.GetComponent<GameOver>().EnableGameOverScreen();
     }
 }
