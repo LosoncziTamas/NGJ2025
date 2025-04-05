@@ -16,6 +16,7 @@ public class GameOver : MonoBehaviour
     public void EnableGameOverScreen()
     {
         //disable player movement and enable UI
+        Cursor.lockState = CursorLockMode.None;
         Player.SetActive(false);
 
         gameObject.GetComponent<NoiseManager>().enabled = false;
