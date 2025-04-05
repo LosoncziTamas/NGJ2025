@@ -428,6 +428,7 @@ namespace NordicGameJam.Character
 
         private void OnGUI()
         {
+            return;
             GUILayout.Space(100);
             GUILayout.Label("_moveInputVector: " + _moveInputVector);
             GUILayout.Label("Forward: " + CameraFollowPoint.forward);

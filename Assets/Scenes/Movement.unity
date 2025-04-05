@@ -313,7 +313,7 @@ MonoBehaviour:
   BonusOrientationSharpness: 10
   Gravity: {x: 0, y: -30, z: 0}
   MeshRoot: {fileID: 1358404893}
-  CameraFollowPoint: {fileID: 4976729738848238525}
+  CameraFollowPoint: {fileID: 823752427}
   CrouchedCapsuleHeight: 1
 --- !u!114 &694220942
 MonoBehaviour:
@@ -416,9 +416,9 @@ MonoBehaviour:
   Camera: {fileID: 694920936}
   FollowPointFraming: {x: 0, y: 0}
   FollowingSharpness: 1e+9
-  DefaultDistance: 0
-  MinDistance: 0
-  MaxDistance: 0
+  DefaultDistance: 0.55
+  MinDistance: 0.55
+  MaxDistance: 0.55
   DistanceMovementSpeed: 5
   DistanceMovementSharpness: 10
   InvertX: 0
@@ -482,7 +482,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.2
   far clip plane: 1000
   field of view: 75
   orthographic: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
   delay: 0
-  duration: 3
+  duration: 2
   easeType: 7
   easeCurve:
     serializedVersion: 2
@@ -605,7 +605,7 @@ MonoBehaviour:
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
-  endValueFloat: 70
+  endValueFloat: 80
   endValueV3: {x: 0, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
@@ -673,7 +673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &823752427
 Transform:
   m_ObjectHideFlags: 0
@@ -1206,13 +1206,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1358404893}
     m_Modifications:
-    - target: {fileID: 2004609969711076641, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004609969711076641, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
-      propertyPath: m_Constraints
-      value: 14
+    - target: {fileID: 1763644773754816430, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3235007402836108924, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
       propertyPath: m_Name
@@ -1263,11 +1259,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
---- !u!4 &4976729738848238525 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1421520656417207974, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
-  m_PrefabInstance: {fileID: 4785171522935840126}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6674893671129022069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6046053159757467263, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
