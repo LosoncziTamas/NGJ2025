@@ -15,22 +15,26 @@ public class PropOnContact : MonoBehaviour
 
     bool istouched = false;
 
-    private void OnCollisionEnter(Collision collision)
+    //whether object will break after 1st contact
+    public bool isFragile;
+
+    private void OnTriggerEnter(Collider collision)
     {
         Debug.Log(collision.gameObject.tag);
 
         //send score to sound metre
-        if(collision.gameObject.tag =="Player" && istouched == false)
+        if (collision.gameObject.tag == "Player" && istouched == false)
         {
-            istouched = true;
-            Debug.Log("Player touched Object");
-
             GameManager.GetComponent<NoiseManager>().UpdateSlider(SoundAmount);
 
-            PlaySound();           
+            PlaySound();
 
-            StartCoroutine(KillObject());            
-        }        
+            if (isFragile == true)
+            {
+                istouched = true;
+                StartCoroutine(KillObject());
+            }
+        }
     }
 
     void PlaySound()
