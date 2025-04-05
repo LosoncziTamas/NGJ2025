@@ -299,7 +299,7 @@ MonoBehaviour:
   MaxStableMoveSpeed: 2.5
   StableMovementSharpness: 5
   OrientationSharpness: 2.5
-  OrientationMethod: 0
+  OrientationMethod: 1
   MaxAirMoveSpeed: 5
   AirAccelerationSpeed: 5
   Drag: 0.2
@@ -313,7 +313,7 @@ MonoBehaviour:
   BonusOrientationSharpness: 10
   Gravity: {x: 0, y: -30, z: 0}
   MeshRoot: {fileID: 1358404893}
-  CameraFollowPoint: {fileID: 4976729738848238525}
+  CameraFollowPoint: {fileID: 823752427}
   CrouchedCapsuleHeight: 1
 --- !u!114 &694220942
 MonoBehaviour:
@@ -416,9 +416,9 @@ MonoBehaviour:
   Camera: {fileID: 694920936}
   FollowPointFraming: {x: 0, y: 0}
   FollowingSharpness: 1e+9
-  DefaultDistance: 0
+  DefaultDistance: 1
   MinDistance: 0
-  MaxDistance: 0
+  MaxDistance: 2
   DistanceMovementSpeed: 5
   DistanceMovementSharpness: 10
   InvertX: 0
@@ -673,7 +673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &823752427
 Transform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1198,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770219795}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &4642854046863199616 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7690468012036746831, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
+  m_PrefabInstance: {fileID: 4785171522935840126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4785171522935840126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1206,14 +1211,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1358404893}
     m_Modifications:
-    - target: {fileID: 2004609969711076641, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004609969711076641, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
-      propertyPath: m_Constraints
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 3235007402836108924, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
       propertyPath: m_Name
       value: Ragdoll
@@ -1261,11 +1258,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3235007402836108924, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6674893671129022070}
   m_SourcePrefab: {fileID: 100100000, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
---- !u!4 &4976729738848238525 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1421520656417207974, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
+--- !u!54 &5898779957456422930 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8937703503058977369, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
+  m_PrefabInstance: {fileID: 4785171522935840126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6334925034893976783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3235007402836108924, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
+  m_PrefabInstance: {fileID: 4785171522935840126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6434072131196872404 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1763644773754816430, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
   m_PrefabInstance: {fileID: 4785171522935840126}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6674893671129022069 stripped
@@ -1273,6 +1283,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6046053159757467263, guid: 4f709a543e7f9574b982ce074081c9fd, type: 3}
   m_PrefabInstance: {fileID: 4785171522935840126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6674893671129022070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334925034893976783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c9ee2dd4374bf9bde4b811733d647f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftLeg: {fileID: 5898779957456422930}
+  _rightLeg: {fileID: 4642854046863199616}
+  _hip: {fileID: 6434072131196872404}
+  _speed: 1000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
