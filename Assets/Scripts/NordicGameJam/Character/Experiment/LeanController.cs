@@ -14,28 +14,17 @@ public class First_Person_Movement : MonoBehaviour
     [SerializeField] private CharacterController Controller;
     [SerializeField] private Transform Player;
     [Space]
-    [Header("Movement")]
-    [SerializeField] private float Speed;
-    [SerializeField] private float JumpForce;
     [SerializeField] private float Sensetivity;
-    [SerializeField] private float Gravity = 9.81f;
-    [Space]
-    [Header("Sneaking")]
-    [SerializeField] private bool Sneak = false;
-    [SerializeField] private float SneakSpeed;
 
 
     //how fast the character leans
     public float leanSpeed;
 
-    //maximum lean angle   
-    private float AngleMax = 20f;
-    private float AngleMin = -20f;
+    //min max lean angle 
+    private float AngleMax = 30f;
+    private float AngleMin = -30f;
 
     public Transform localTrans;
-
-    //minimum lean angle
-    public float minAngle;
 
     //how fast the character goes
     public float characterSpeed;
@@ -88,45 +77,28 @@ public class First_Person_Movement : MonoBehaviour
         playerEulerAngles.z = (playerEulerAngles.z > 180 ? playerEulerAngles.z - 360 : playerEulerAngles.z);
         playerEulerAngles.z = Mathf.Clamp(playerEulerAngles.z, AngleMin, AngleMax);
 
+        playerEulerAngles.x = (playerEulerAngles.x > 180 ? playerEulerAngles.x - 360 : playerEulerAngles.x);
+        playerEulerAngles.x = Mathf.Clamp(playerEulerAngles.x, AngleMin, AngleMax);
+
         localTrans.localRotation = Quaternion.Euler(playerEulerAngles);
     }
 
     private void MovePlayer()
     {
-        Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput);
+        gameObject.transform.position += transform.forward * transform.localRotation.x / 20;
+        //gameObject.transform.position += Vector2(transform.localRotation,);
 
-
-        if (Controller.isGrounded)
-        {
-            Velocity.y = -1f;
-
-            if (Input.GetKeyDown(KeyCode.Space) && Sneaking == false)
-            {
-                Velocity.y = JumpForce;
-            }
-        }
-        else
-        {
-            Velocity.y += Gravity * -2f * Time.deltaTime;
-        }
-        if (Sneaking)
-        {
-            Controller.Move(MoveVector * SneakSpeed * Time.deltaTime);
-        }
-        else
-        {
-            Controller.Move(MoveVector * Speed * Time.deltaTime);
-        }
-        Controller.Move(Velocity * Time.deltaTime);
-
+        //gameObject.transform.localPosition += new Vector3(transform.localRotation.z /20, 0, transform.localRotation.x /20);
     }
+
     private void MoveCamera()
     {
         xRotation -= PlayerMouseInput.y * Sensetivity;
 
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.Rotate(0f, PlayerMouseInput.x * Sensetivity, 0f);
-        PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(0f, PlayerMouseInput.x * Sensetivity, 0f, Space.World);
+
+        PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0,0);
     }
 }
