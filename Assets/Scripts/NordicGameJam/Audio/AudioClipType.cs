@@ -10,5 +10,6 @@
         Footstep = 6,
         Hiccup = 7,
         UIHover = 8,
+        Bottle = 9,
     }
 }

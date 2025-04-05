@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,17 +25,15 @@ namespace NordicGameJam.UI
         private void OnStartButtonClick()
         {
             _start.interactable = _exit.interactable = false;
-            // TODO: load appropriate scene
-            SceneManager.LoadScene("Movement");
+            SceneManager.LoadScene("Tutorial");
         }
-        
+
         private void OnExitButtonClick()
         {
             _start.interactable = _exit.interactable = false;
-            if (Application.isEditor)
-            {
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
             Application.Quit();
         }
     }
