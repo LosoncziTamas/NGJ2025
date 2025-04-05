@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using NordicGameJam.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -48,6 +49,7 @@ namespace NordicGameJam.UI
             var waitTime = _waitDuration;
             
             yield return AnimateTextWaitAndReverse(text1, duration, reverseDuration, waitTime);
+            SimpleAudioManager.Instance.PlayOneShot(AudioClipType.Bottle);
             yield return AnimateTextWaitAndReverse(text2, duration, reverseDuration, waitTime);
             yield return AnimateTextWaitAndReverse(text3, duration, reverseDuration, waitTime);
         }
@@ -61,20 +63,11 @@ namespace NordicGameJam.UI
             yield return _text.DOFade(0.0f, reverseDuration).WaitForCompletion();
             _text.text = string.Empty;
         }
-        
-        private IEnumerator AnimateTextAndWaitForButtonClickBeforeReverse(string text, float duration, float reverseDuration)
-        {
-            _text.DOFade(1.0f, 0.0f);
-            var tween = _text.DOText(text, duration).SetEase(Ease.InOutSine);
-            yield return tween.WaitForCompletion();
-            tween.timeScale = duration / reverseDuration;
-            yield return _text.DOFade(0.0f, reverseDuration).WaitForCompletion();;
-            _text.text = string.Empty;
-        }
 
         private void GoToNextScene()
         {
             _skipButton.interactable = false;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
             SceneManager.LoadScene("Movement");
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,7 +27,7 @@ namespace NordicGameJam.UI
             _start.interactable = _exit.interactable = false;
             SceneManager.LoadScene("Tutorial");
         }
-        
+
         private void OnExitButtonClick()
         {
             _start.interactable = _exit.interactable = false;
