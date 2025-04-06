@@ -42,9 +42,18 @@ Material:
     - _Column_Pos: 0
     - _Gradient_Divide_Value: 100
     - _Gradient_Fixed_Divide: 0
-    - _Gradient_Intensity: 1
+    - _Gradient_Intensity: 0
     - _Row_pos: 0
     - _Texture_Color_Gradient: 0
     m_Colors:
+    - _Col_1: {r: 0.7735849, g: 0.7579886, b: 0.66411525, a: 0}
+    - _Col_2: {r: 0.61635214, g: 0.609028, b: 0.44772744, a: 0}
+    - _Col_3: {r: 0.4501037, g: 0.4716981, b: 0.32781532, a: 0}
+    - _Col_4: {r: 0.44025147, g: 0.3335943, b: 0.08721957, a: 0}
+    - _Col_5: {r: 0.25157225, g: 0.121269695, b: 0.0324354, a: 0}
+    - _Col_6: {r: 0.22012573, g: 0.040840928, b: 0.042945854, a: 0}
+    - _Col_7: {r: 0.64684933, g: 0.77713674, b: 0.8679245, a: 0}
+    - _Col_8: {r: 0.3405521, g: 0.36480153, b: 0.42138356, a: 0}
+    - _Col_9: {r: 0.17194162, g: 0.1661128, b: 0.23270428, a: 0}
     - _Gradient_Color: {r: 0.59748423, g: 0.23486009, b: 0.23486009, a: 0}
   m_BuildTextureStacks: []
