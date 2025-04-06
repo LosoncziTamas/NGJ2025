@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 918d658c2f164d04998b6aee9a74c591, type: 3}
-  m_Name: New Noise Props
+  m_Name: Cat
   m_EditorClassIdentifier: 
-  NoiseLevel: 23.3
+  NoiseLevel: 25.9
   Volume: 1
-  ClipToPlay: {fileID: 8300000, guid: cde5bda7e693e3a44b1d1f4f53f1e35e, type: 3}
+  ClipToPlay: {fileID: 8300000, guid: fed10afb4d33ea44e81eabc63fd47b5a, type: 3}
