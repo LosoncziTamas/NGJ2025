@@ -12,18 +12,15 @@ namespace NordicGameJam.GameLogic
         // Start is called before the first frame update
         void Start()
         {
-            FinalTask.GetComponent<BoxCollider>().enabled = true;
+            FinalTask.GetComponent<BoxCollider>().enabled = false;
             //find every task in level
             TaskAmount = GameObject.FindGameObjectsWithTag("Task").Length;        
             TasksComplete = 0;
-
-            Debug.Log(TaskAmount);
         }
 
         public void UpdateTaskCounter()
         {
             TasksComplete++;
-            Debug.Log(TasksComplete);
 
             if (TasksComplete == TaskAmount)
             {

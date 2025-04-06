@@ -1,3 +1,4 @@
+using NordicGameJam.UI;
 using UnityEngine;
 
 namespace NordicGameJam.GameLogic
@@ -8,13 +9,14 @@ namespace NordicGameJam.GameLogic
         bool inTrigger;
         public GameObject GameManager;
         public bool isFinalTask = false;
-
+        private GameOverPanel g;
 
         // Start is called before the first frame update
         void Start()
         {
             TaskCanvas.enabled = false;
             inTrigger = false;
+            g = FindObjectOfType<GameOverPanel>(true);
         }
 
         // Update is called once per frame
@@ -28,7 +30,7 @@ namespace NordicGameJam.GameLogic
 
                     if(isFinalTask == true)
                     {
-
+                        g.Show(true);
                     }
                 }
             
