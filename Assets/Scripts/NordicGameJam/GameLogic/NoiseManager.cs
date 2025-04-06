@@ -39,9 +39,9 @@ namespace NordicGameJam.GameLogic
             }
         }
 
-        public void UpdateSlider(float newvalue)
+        public void UpdateSlider(float newValue)
         {
-            SoundSlider.value += newvalue;
+            SoundSlider.value += newValue;
             SoundSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color =
                 Color.Lerp(Color.green, Color.red, SoundSlider.value / 100);
         }
