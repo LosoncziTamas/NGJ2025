@@ -40,16 +40,7 @@ namespace NordicGameJam.GameLogic
                 yield return new WaitForSeconds(time);
             }
         }
-
-        private void OnGUI()
-        {
-            GUILayout.Space(100);
-            if (GUILayout.Button("UpdateSlider"))
-            {
-                UpdateSlider(10);
-            }
-        }
-
+        
         public void UpdateSlider(float valueToAdd)
         {
             if (valueToAdd > 0)
@@ -64,7 +55,7 @@ namespace NordicGameJam.GameLogic
         private void MetreFilled()
         {
             _cooldownRunning = false;
-            _gameOverPanel.Show();
+            _gameOverPanel.Show(win: false);
         }
     }
 }
