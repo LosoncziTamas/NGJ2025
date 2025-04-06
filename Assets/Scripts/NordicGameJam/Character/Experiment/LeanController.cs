@@ -47,7 +47,7 @@ public class First_Person_Movement : MonoBehaviour
 
         localTrans = gameObject.GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
-        StartCoroutine(RandomiseMovement());
+        //StartCoroutine(RandomiseMovement());
     }
 
     // Update is called once per frame
@@ -119,9 +119,9 @@ public class First_Person_Movement : MonoBehaviour
     private void MovePlayer()
     {
 
-        gameObject.transform.localPosition += new Vector3(transform.right.x * sideAmount, 0, transform.right.z * sideAmount);
-        gameObject.transform.localPosition += new Vector3(transform.forward.x * forwardAmount, 0, transform.forward.z * forwardAmount);
-        
+        gameObject.GetComponent<Rigidbody>().velocity += new Vector3(transform.right.x * sideAmount, 0, transform.right.z * sideAmount);
+        gameObject.GetComponent<Rigidbody>().velocity += new Vector3(transform.forward.x * forwardAmount, 0, transform.forward.z * forwardAmount);
+      
     }
 
     IEnumerator RandomiseMovement()
