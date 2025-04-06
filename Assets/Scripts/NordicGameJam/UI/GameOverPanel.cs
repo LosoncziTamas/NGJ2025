@@ -30,6 +30,7 @@ namespace NordicGameJam.UI
         public void Show()
         {
             gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }

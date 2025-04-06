@@ -1,42 +1,48 @@
+using NordicGameJam.Audio;
 using UnityEngine;
 
 namespace NordicGameJam.GameLogic
 {
     public class PropOnContact : MonoBehaviour
     {
-        public float SoundAmount;
-        public GameObject GameManager;
+        private const int KillDelay = 5;
         
-        bool istouched = false;
-
-        //whether object will break after 1st contact
+        [SerializeField] private NoiseProps _noiseProps;
+        
+        private bool _isTouched = false;
+        
         public bool isFragile;
+
+        private NoiseManager _noiseManager;
+
+        private void Awake()
+        {
+            _noiseManager = FindObjectOfType<NoiseManager>();
+        }
 
         private void OnTriggerEnter(Collider collision)
         {
             Debug.Log(collision.gameObject.tag);
-            if (collision.gameObject.CompareTag("Player") && istouched == false)
+            if (collision.gameObject.CompareTag("Player") && _isTouched == false)
             {
-                GameManager.GetComponent<NoiseManager>().UpdateSlider(SoundAmount);
-
+                _noiseManager.UpdateSlider(_noiseProps.NoiseLevel);
                 PlaySound();
-
                 if (isFragile)
                 {
-                    istouched = true;
+                    _isTouched = true;
                     KillObject();
                 }
             }
         }
 
-        void PlaySound()
+        private void PlaySound()
         {
-
+            SimpleAudioManager.Instance.PlayClip(_noiseProps.ClipToPlay, _noiseProps.Volume);
         }
     
         private void KillObject()
         {
-            Destroy(gameObject, 5);
+            Destroy(gameObject, KillDelay);
         }
     }
 }
