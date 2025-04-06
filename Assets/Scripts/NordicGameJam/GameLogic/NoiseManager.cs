@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NordicGameJam.UI;
 using UnityEngine;
@@ -36,6 +37,19 @@ namespace NordicGameJam.GameLogic
             {
                 UpdateSlider(CooldownAmount);
                 yield return new WaitForSeconds(time);
+            }
+        }
+
+        private void OnGUI()
+        {
+            GUILayout.Space(100);
+            if (GUILayout.Button(""))
+            {
+                
+            }
+            if (GUILayout.Button(""))
+            {
+                
             }
         }
 
