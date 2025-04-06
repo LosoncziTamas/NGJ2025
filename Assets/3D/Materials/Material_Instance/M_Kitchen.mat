@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Base_Environment
+  m_Name: M_Kitchen
   m_Shader: {fileID: -6465566751694194690, guid: 6dead29b702830644b2a4ed6c6323d3c, type: 3}
   m_Parent: {fileID: 2100000, guid: 762d529223a7e8f4586c311a135250ce, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -42,18 +42,19 @@ Material:
     - _Column_Pos: 0
     - _Gradient_Divide_Value: 100
     - _Gradient_Fixed_Divide: 0
-    - _Gradient_Intensity: 0
+    - _Gradient_Intensity: 1
+    - _Gradient_Pos: 0
     - _Row_pos: 0
     - _Texture_Color_Gradient: 0
     m_Colors:
-    - _Col_1: {r: 0.7735849, g: 0.7579886, b: 0.66411525, a: 0}
-    - _Col_2: {r: 0.61635214, g: 0.609028, b: 0.44772744, a: 0}
-    - _Col_3: {r: 0.4501037, g: 0.4716981, b: 0.32781532, a: 0}
-    - _Col_4: {r: 0.44025147, g: 0.3335943, b: 0.08721957, a: 0}
-    - _Col_5: {r: 0.25157225, g: 0.121269695, b: 0.0324354, a: 0}
-    - _Col_6: {r: 0.22012573, g: 0.040840928, b: 0.042945854, a: 0}
-    - _Col_7: {r: 0.64684933, g: 0.77713674, b: 0.8679245, a: 0}
-    - _Col_8: {r: 0.3405521, g: 0.36480153, b: 0.42138356, a: 0}
-    - _Col_9: {r: 0.17194162, g: 0.1661128, b: 0.23270428, a: 0}
+    - _Col_1: {r: 0.627451, g: 0.6991651, b: 0.7058824, a: 0}
+    - _Col_2: {r: 0.36788493, g: 0.5405621, b: 0.5597484, a: 0}
+    - _Col_3: {r: 0.19486962, g: 0.3179046, b: 0.37106913, a: 0}
+    - _Col_4: {r: 0.8553459, g: 0.77473795, b: 0.6051975, a: 0}
+    - _Col_5: {r: 0.6226415, g: 0.44613194, b: 0.28782478, a: 0}
+    - _Col_6: {r: 0.4528302, g: 0.29595342, b: 0.1893912, a: 0}
+    - _Col_7: {r: 0.1791068, g: 0.18544807, b: 0.20125782, a: 0}
+    - _Col_8: {r: 0.18867922, g: 0.16766833, b: 0.16316599, a: 0}
+    - _Col_9: {r: 0.044867165, g: 0.027450979, b: 0.23137255, a: 0}
     - _Gradient_Color: {r: 0.59748423, g: 0.23486009, b: 0.23486009, a: 0}
   m_BuildTextureStacks: []
