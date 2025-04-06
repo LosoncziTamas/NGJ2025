@@ -11,6 +11,10 @@ namespace NordicGameJam.GameLogic
         // Start is called before the first frame update
         void Start()
         {
+            if (!GameManager)
+            {
+                GameManager = FindObjectOfType<TaskManager>().gameObject;
+            }
             TaskCanvas.enabled = false;
             inTrigger = false;
         }

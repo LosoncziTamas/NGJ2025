@@ -69,6 +69,10 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 34953180ca79f7849b87eb01867f7423, type: 3}
   - Type: 9
     Clip: {fileID: 8300000, guid: 461f9c608e9de55429b4a445da54e6d6, type: 3}
+  - Type: 10
+    Clip: {fileID: 8300000, guid: b491f8530ff75514088782c2d54e968e, type: 3}
+  - Type: 11
+    Clip: {fileID: 8300000, guid: a62be065f6089c54faf57c42b4cc90e3, type: 3}
 --- !u!1 &6843206716213684335
 GameObject:
   m_ObjectHideFlags: 0

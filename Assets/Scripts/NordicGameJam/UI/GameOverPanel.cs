@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using NordicGameJam.Audio;
 using NordicGameJam.Utils;
 using TMPro;
 using UnityEngine;
@@ -32,6 +33,10 @@ namespace NordicGameJam.UI
         public void Show(bool win)
         {
             _title.text = win ? "Nice Job!" : "Game Over";
+            if (!win)
+            {
+                SimpleAudioManager.Instance.PlayOneShot(AudioClipType.GameOver);
+            }
             gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
         }
