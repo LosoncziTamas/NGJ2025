@@ -1,6 +1,7 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
+using NordicGameJam.Utils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace NordicGameJam.UI
@@ -22,13 +23,14 @@ namespace NordicGameJam.UI
 
         private void OnBackToMenuButtonClick()
         {
-            
+            _backToMenu.interactable = false;
+            SceneManager.LoadScene(SceneNames.MainMenu);
         }
-
-
+        
         public void Show()
         {
             gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }
