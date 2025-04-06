@@ -1,3 +1,4 @@
+using NordicGameJam.Audio;
 using NordicGameJam.UI;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -74,6 +75,8 @@ namespace NordicGameJam.GameLogic
 
         void FinishPropTask()
         {
+
+            SimpleAudioManager.Instance.PlayOneShot(AudioClipType.UIClick);
             HidePropUI();
             PlayPropEffect();        
             inTrigger = true;
