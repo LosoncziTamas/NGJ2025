@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEditor.Search;
 using UnityEngine;
 
@@ -24,10 +26,16 @@ public class First_Person_Movement : MonoBehaviour
     private float AngleMax = 30f;
     private float AngleMin = -30f;
 
+    private float forwardAmount;
+    private float sideAmount;
+
     public Transform localTrans;
 
     //how fast the character goes
-    public float characterSpeed;
+    public float playerSpeed;
+
+    private float maxPlayerSpeed = 0.02f;
+    private float maxSpeedGain = 0.0005f;
 
 
     void Start()
@@ -42,25 +50,44 @@ public class First_Person_Movement : MonoBehaviour
         { 
             if (Input.GetKey(KeyCode.A))
             {
+                //gameObject.transform.Rotate(0, 0, leanSpeed);
 
-                //Debug.Log(gameObject.transform.rotation.z);
-                //transform character roation 
-                gameObject.transform.Rotate(0, 0, leanSpeed);
-
+                if (sideAmount > -maxPlayerSpeed)
+                {
+                    sideAmount -= maxSpeedGain;
+                    gameObject.transform.Rotate(0, 0, leanSpeed);
+                }                   
             }
-
             if (Input.GetKey(KeyCode.D))
             {
-                gameObject.transform.Rotate(0, 0, -leanSpeed);
+                //gameObject.transform.Rotate(0, 0, -leanSpeed);
+
+                if (sideAmount < maxPlayerSpeed)
+                {
+                    sideAmount += maxSpeedGain;
+                    gameObject.transform.Rotate(0, 0, -leanSpeed);
+                }
             }
             if (Input.GetKey(KeyCode.W))
             {
-                gameObject.transform.Rotate(leanSpeed, 0, 0);
-            }
+                //gameObject.transform.Rotate(leanSpeed, 0, 0);
 
+                if (forwardAmount < maxPlayerSpeed)
+                {
+                    forwardAmount += maxSpeedGain;
+                    gameObject.transform.Rotate(leanSpeed, 0, 0);
+                }
+            }
             if (Input.GetKey(KeyCode.S))
             {
-                gameObject.transform.Rotate(-leanSpeed, 0, 0);
+                //gameObject.transform.Rotate(-leanSpeed, 0, 0);
+
+                if (forwardAmount > -maxPlayerSpeed)
+                {                  
+                    forwardAmount -= maxSpeedGain;
+                    gameObject.transform.Rotate(-leanSpeed, 0, 0);
+                }
+                    
             }
         }
         LimitRot();
@@ -85,10 +112,10 @@ public class First_Person_Movement : MonoBehaviour
 
     private void MovePlayer()
     {
-        gameObject.transform.position += transform.forward * transform.localRotation.x / 20;
-        //gameObject.transform.position += Vector2(transform.localRotation,);
 
-        //gameObject.transform.localPosition += new Vector3(transform.localRotation.z /20, 0, transform.localRotation.x /20);
+        gameObject.transform.localPosition += new Vector3(transform.right.x * sideAmount, 0, transform.right.z * sideAmount);
+        gameObject.transform.localPosition += new Vector3(transform.forward.x * forwardAmount, 0, transform.forward.z * forwardAmount);
+        
     }
 
     private void MoveCamera()
