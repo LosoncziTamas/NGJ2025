@@ -150,7 +150,7 @@ public class First_Person_Movement : MonoBehaviour
 
             if (forwardAmount < maxPlayerSpeed && forwardAmount > -maxPlayerSpeed)
             {
-                forwardAmount += (xRandomTarget - sideAmount) *timeSec - Time.deltaTime;
+                forwardAmount += (xRandomTarget - sideAmount) * timeSec - Time.deltaTime;
             }
             
             yield return new WaitForSeconds(1.5f);
