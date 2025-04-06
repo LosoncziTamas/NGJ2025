@@ -15,7 +15,6 @@ namespace NordicGameJam.GameLogic
         private GameOverPanel _gameOverPanel;
         private TakeDamageOverlay _takeDamageOverlay;
         private bool _cooldownRunning;
-        private bool _gameOver;
 
         private void Start()
         {
@@ -55,11 +54,6 @@ namespace NordicGameJam.GameLogic
 
         private void MetreFilled()
         {
-            if (_gameOver)
-            {
-                return;
-            }
-            _gameOver = true;
             _cooldownRunning = false;
             _gameOverPanel.Show(win: false);
         }

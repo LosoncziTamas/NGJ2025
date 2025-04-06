@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918d658c2f164d04998b6aee9a74c591, type: 3}
   m_Name: Rubber Duck
   m_EditorClassIdentifier: 
-  NoiseLevel: 5
-  Volume: 1
+  NoiseLevel: 10
+  Volume: 50
   ClipToPlay: {fileID: 8300000, guid: 728ea5f70014b7e43b3e782e45130bac, type: 3}

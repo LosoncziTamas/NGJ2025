@@ -11,7 +11,5 @@
         Hiccup = 7,
         UIHover = 8,
         Bottle = 9,
-        TaskComplete = 10,
-        GameOver = 11,
     }
 }
