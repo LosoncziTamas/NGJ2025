@@ -1,7 +1,7 @@
 ﻿using NordicGameJam.Audio;
 using UnityEngine;
 
-namespace NordicGameJam
+namespace NordicGameJam.GameLogic
 {
     public class NoiseEmitter : MonoBehaviour
     {

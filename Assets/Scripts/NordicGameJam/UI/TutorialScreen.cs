@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using DG.Tweening;
 using NordicGameJam.Audio;
+using NordicGameJam.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -68,7 +69,7 @@ namespace NordicGameJam.UI
         {
             _skipButton.interactable = false;
             Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
-            SceneManager.LoadScene("Movement");
+            SceneManager.LoadScene(SceneNames.Level);
         }
     }
 }
