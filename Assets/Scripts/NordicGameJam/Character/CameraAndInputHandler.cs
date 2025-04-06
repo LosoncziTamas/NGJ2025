@@ -17,7 +17,7 @@ namespace NordicGameJam.Character
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.lockState = CursorLockMode.Locked;
 
             // Tell camera to follow transform
             CharacterCamera.SetFollowTransform(Character.CameraFollowPoint);
@@ -31,7 +31,7 @@ namespace NordicGameJam.Character
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Cursor.lockState = CursorLockMode.Locked;
+                // Cursor.lockState = CursorLockMode.Locked;
             }
 
             HandleCharacterInput();
@@ -72,7 +72,7 @@ namespace NordicGameJam.Character
             CharacterCamera.UpdateWithInput(Time.deltaTime, scrollInput, lookInputVector);
             
             // Drunk leaning
-            Character.AddVelocity(lookInputVector * 0.25f);
+            // Character.AddVelocity(lookInputVector * 0.25f);
         }
 
         private void HandleCharacterInput()

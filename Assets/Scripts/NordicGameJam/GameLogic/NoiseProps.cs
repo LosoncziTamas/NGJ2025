@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NordicGameJam
+namespace NordicGameJam.GameLogic
 {
     [CreateAssetMenu]
     public class NoiseProps : ScriptableObject
