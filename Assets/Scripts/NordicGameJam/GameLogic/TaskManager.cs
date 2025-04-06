@@ -7,10 +7,12 @@ namespace NordicGameJam.GameLogic
         int TaskAmount;
         int TasksComplete;
 
+        public GameObject FinalTask;
+
         // Start is called before the first frame update
         void Start()
         {
-        
+            FinalTask.GetComponent<BoxCollider>().enabled = true;
             //find every task in level
             TaskAmount = GameObject.FindGameObjectsWithTag("Task").Length;        
             TasksComplete = 0;
@@ -25,8 +27,7 @@ namespace NordicGameJam.GameLogic
 
             if (TasksComplete == TaskAmount)
             {
-                //activateFinaltask
-                Debug.Log("Go To Bed!");
+                FinalTask.GetComponent<BoxCollider>().enabled = true;
             }
 
         }

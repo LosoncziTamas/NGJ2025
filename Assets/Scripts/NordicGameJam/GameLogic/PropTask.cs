@@ -7,6 +7,8 @@ namespace NordicGameJam.GameLogic
         public Canvas TaskCanvas;
         bool inTrigger;
         public GameObject GameManager;
+        public bool isFinalTask = false;
+
 
         // Start is called before the first frame update
         void Start()
@@ -23,6 +25,11 @@ namespace NordicGameJam.GameLogic
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     FinishPropTask();
+
+                    if(isFinalTask == true)
+                    {
+
+                    }
                 }
             
             }
