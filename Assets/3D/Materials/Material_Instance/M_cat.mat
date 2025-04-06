@@ -35,16 +35,20 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Object_Texture:
+        m_Texture: {fileID: 2800000, guid: 81c14f142c042d04b96bb29f3d9edb15, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Color_Texture_Grid: 0
+    - _Color_Texture_Grid: 1
     - _Column_Pos: 0
     - _Gradient_Divide_Value: 100
     - _Gradient_Fixed_Divide: 0
     - _Gradient_Intensity: 1
     - _Row_pos: 0
-    - _Texture_Color_Gradient: 0
+    - _Texture_Color_Gradient: 1
     m_Colors:
     - _Gradient_Color: {r: 0.59748423, g: 0.23486009, b: 0.23486009, a: 0}
   m_BuildTextureStacks: []

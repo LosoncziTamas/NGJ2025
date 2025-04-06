@@ -36,7 +36,7 @@ namespace NordicGameJam.UI
             if (!win)
             {
                 // SimpleAudioManager.Instance.PlayOneShot(AudioClipType.GameOver);
-                SimpleAudioManager.Instance.PlayOneShot(AudioClipType.AngryCat);
+                SimpleAudioManager.Instance.PlayOneShot(AudioClipType.AngryMan);
             }
             gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
