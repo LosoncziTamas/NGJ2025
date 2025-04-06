@@ -1846,6 +1846,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1434782913909079340, guid: 8901e818fb58cbe438a132a530b3cecb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2301224934576224942, guid: 8901e818fb58cbe438a132a530b3cecb, type: 3}
       propertyPath: m_Name
       value: Take Damage Overlay
