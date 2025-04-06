@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backToMenu: {fileID: 5587688928344624956}
   _animation: {fileID: 8633600357495391965}
+  _title: {fileID: 8740494401534075649}
 --- !u!1 &3592700701034353016
 GameObject:
   m_ObjectHideFlags: 0

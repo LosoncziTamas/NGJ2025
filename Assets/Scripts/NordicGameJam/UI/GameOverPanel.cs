@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using NordicGameJam.Utils;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace NordicGameJam.UI
     {
         [SerializeField] private Button _backToMenu;
         [SerializeField] private DOTweenAnimation _animation;
+        [SerializeField] private TextMeshProUGUI _title;
 
         private void OnEnable()
         {
@@ -27,8 +29,9 @@ namespace NordicGameJam.UI
             SceneManager.LoadScene(SceneNames.MainMenu);
         }
         
-        public void Show()
+        public void Show(bool win)
         {
+            _title.text = win ? "Nice Job!" : "Game Over";
             gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
         }
