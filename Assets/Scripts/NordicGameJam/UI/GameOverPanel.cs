@@ -35,7 +35,8 @@ namespace NordicGameJam.UI
             _title.text = win ? "Nice Job!" : "Game Over";
             if (!win)
             {
-                SimpleAudioManager.Instance.PlayOneShot(AudioClipType.GameOver);
+                // SimpleAudioManager.Instance.PlayOneShot(AudioClipType.GameOver);
+                SimpleAudioManager.Instance.PlayOneShot(AudioClipType.AngryCat);
             }
             gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;

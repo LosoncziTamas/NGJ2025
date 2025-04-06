@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918d658c2f164d04998b6aee9a74c591, type: 3}
   m_Name: Cat
   m_EditorClassIdentifier: 
-  NoiseLevel: 25.9
+  NoiseLevel: 100
   Volume: 1
   ClipToPlay: {fileID: 8300000, guid: fed10afb4d33ea44e81eabc63fd47b5a, type: 3}
