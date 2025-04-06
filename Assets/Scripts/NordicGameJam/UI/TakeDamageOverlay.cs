@@ -16,17 +16,5 @@ namespace NordicGameJam.UI
             _animation.DOPlay();
             SimpleAudioManager.Instance.PlayOneShot(AudioClipType.Hiccup);
         }
-
-        private void OnGUI()
-        {
-            if (!_debug)
-            {
-                return;
-            }
-            if (GUILayout.Button("Take damage"))
-            {
-                OnDamage();
-            }
-        }
     }
 }

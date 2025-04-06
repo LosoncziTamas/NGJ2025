@@ -14,11 +14,13 @@ namespace NordicGameJam.GameLogic
         public int CooldownDelay;
         
         private GameOverPanel _gameOverPanel;
+        private TakeDamageOverlay _takeDamageOverlay;
         private bool _cooldownRunning;
 
         private void Start()
         {
             _gameOverPanel = FindObjectOfType<GameOverPanel>(includeInactive: true);
+            _takeDamageOverlay = FindObjectOfType<TakeDamageOverlay>();
             StartCoroutine(Cooldown(CooldownDelay));
         }
 
@@ -43,19 +45,19 @@ namespace NordicGameJam.GameLogic
         private void OnGUI()
         {
             GUILayout.Space(100);
-            if (GUILayout.Button(""))
+            if (GUILayout.Button("UpdateSlider"))
             {
-                
-            }
-            if (GUILayout.Button(""))
-            {
-                
+                UpdateSlider(10);
             }
         }
 
-        public void UpdateSlider(float newValue)
+        public void UpdateSlider(float valueToAdd)
         {
-            SoundSlider.value += newValue;
+            if (valueToAdd > 0)
+            {
+                _takeDamageOverlay.OnDamage();
+            }
+            SoundSlider.value += valueToAdd;
             SoundSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color =
                 Color.Lerp(Color.green, Color.red, SoundSlider.value / 100);
         }
