@@ -14,7 +14,11 @@ namespace NordicGameJam.GameLogic
         {
             FinalTask.GetComponent<BoxCollider>().enabled = false;
             //find every task in level
-            TaskAmount = GameObject.FindGameObjectsWithTag("Task").Length;        
+
+
+            TaskAmount = GameObject.FindGameObjectsWithTag("Task").Length;
+
+            Debug.Log(TaskAmount);
             TasksComplete = 0;
         }
 
