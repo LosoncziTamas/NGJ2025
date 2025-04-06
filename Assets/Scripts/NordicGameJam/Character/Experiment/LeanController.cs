@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEditor.Search;
@@ -37,11 +38,16 @@ public class First_Person_Movement : MonoBehaviour
     private float maxPlayerSpeed = 0.02f;
     private float maxSpeedGain = 0.0005f;
 
+    private bool isDrunk = false;
+
 
     void Start()
     {
+        isDrunk = true;
+
         localTrans = gameObject.GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
+        //StartCoroutine(RandomiseMovement());
     }
 
     // Update is called once per frame
@@ -113,9 +119,42 @@ public class First_Person_Movement : MonoBehaviour
     private void MovePlayer()
     {
 
-        gameObject.transform.localPosition += new Vector3(transform.right.x * sideAmount, 0, transform.right.z * sideAmount);
-        gameObject.transform.localPosition += new Vector3(transform.forward.x * forwardAmount, 0, transform.forward.z * forwardAmount);
-        
+        gameObject.GetComponent<Rigidbody>().velocity += new Vector3(transform.right.x * sideAmount, 0, transform.right.z * sideAmount);
+        gameObject.GetComponent<Rigidbody>().velocity += new Vector3(transform.forward.x * forwardAmount, 0, transform.forward.z * forwardAmount);
+      
+    }
+
+    IEnumerator RandomiseMovement()
+    {
+        //generate random x and z movement
+        float zRandomTarget;
+        float xRandomTarget;
+
+        float timeSec;
+
+        while(isDrunk == true)
+        {
+            timeSec = 1.5f;
+
+            //select new z and x target speed
+            zRandomTarget = Random.Range(-maxPlayerSpeed /2, maxPlayerSpeed /2);
+            xRandomTarget = Random.Range(-maxPlayerSpeed / 2, maxPlayerSpeed / 2);
+
+            Debug.Log(zRandomTarget);
+            Debug.Log(xRandomTarget);
+
+            if (sideAmount < maxPlayerSpeed && sideAmount > -maxPlayerSpeed)
+            {
+                sideAmount += (zRandomTarget - sideAmount) * timeSec - Time.deltaTime; 
+            }
+
+            if (forwardAmount < maxPlayerSpeed && forwardAmount > -maxPlayerSpeed)
+            {
+                forwardAmount += (xRandomTarget - sideAmount) * timeSec - Time.deltaTime;
+            }
+            
+            yield return new WaitForSeconds(1.5f);
+        }
     }
 
     private void MoveCamera()
