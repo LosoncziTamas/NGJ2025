@@ -1,7 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
-using Unity.VisualScripting.FullSerializer;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class First_Person_Movement : MonoBehaviour
