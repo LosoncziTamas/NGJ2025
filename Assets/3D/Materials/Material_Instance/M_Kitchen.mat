@@ -42,7 +42,7 @@ Material:
     - _Column_Pos: 0
     - _Gradient_Divide_Value: 100
     - _Gradient_Fixed_Divide: 0
-    - _Gradient_Intensity: 1
+    - _Gradient_Intensity: 0
     - _Gradient_Pos: 0
     - _Row_pos: 0
     - _Texture_Color_Gradient: 0
